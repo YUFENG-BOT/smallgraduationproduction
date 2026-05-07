@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino 輸入監看</title>
+  <link rel="stylesheet" href="../common.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <main class="panel">
+    <header class="header">
+      <h1 class="title">Arduino 輸入監看面板</h1>
+      <p class="subtitle">讀取序列數值，並即時送往後端整合伺服器</p>
+    </header>
+
+    <section class="content">
+      <div class="toolbar">
+        <button id="connectSerialBtn" class="btn">連接 Arduino</button>
+        <div id="wsStatus" class="status-chip warn">WebSocket: 連線中...</div>
+        <button id="toggleWsBtn" class="btn">中斷 WebSocket</button>
+        <div style="margin-left:auto" id="channelsGroup"></div>
+      </div>
+
+      <div style="display:grid;gap:12px;grid-template-columns: repeat(auto-fit,minmax(160px,1fr));">
+        <div class="value-card"><div class="value-label">A</div><div id="valA" class="value-number">-</div></div>
+        <div class="value-card"><div class="value-label">B</div><div id="valB" class="value-number">-</div></div>
+        <div class="value-card"><div class="value-label">C</div><div id="valC" class="value-number">-</div></div>
+        <div class="value-card"><div class="value-label">D</div><div id="valD" class="value-number">-</div></div>
+        <div class="value-card"><div class="value-label">E</div><div id="valE" class="value-number">-</div></div>
+      </div>
+
+      <div id="log" class="log">啟動中...</div>
+    </section>
+  </main>
+
+  <script src="../bridge.js"></script>
+  <script src="../serial.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

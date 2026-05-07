@@ -1,0 +1,36 @@
+:root {
+  --primary: #0051a5;
+  --primary-dark: #003d82;
+  --primary-light: #0080d0;
+  --secondary: #00b4ff;
+  --bg-1: #0f1b2a;
+  --bg-2: #1a3a52;
+  --ink: #f5f7fa;
+  --ink-dark: #e8eef5;
+  --muted: #8fa3b8;
+  --card: rgba(255, 255, 255, 0.08);
+  --card-hover: rgba(255, 255, 255, 0.12);
+  --border: rgba(0, 81, 165, 0.25);
+  --ok: #00d084;
+  --warn: #ffb81c;
+  --err: #ff4444;
+  --accent: #00b4ff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", "Noto Sans TC", "PingFang TC", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 25%, #0080d0 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, #003d82 0%, transparent 45%),
+    linear-gradient(135deg, #0f1b2a 0%, #1a3a52 50%, #0f2940 100%);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.panel { box-sizing: border-box; }
