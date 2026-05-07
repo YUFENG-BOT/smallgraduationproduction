@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Gather 收集站</title>
+	<link rel="stylesheet" href="../common.css">
+	<link rel="stylesheet" href="gather.css">
+</head>
+<body>
+	<main class="panel">
+		<header class="header">
+			<h1>Gather 多筆資料收集</h1>
+			<p class="subtitle">接收 index 的值，累積儲存後轉送到 TD WebSocket</p>
+		</header>
+
+		<section class="content">
+			<div class="row">
+				<div id="bridgeStatus" class="status-chip ok">Bridge: 監聽中</div>
+				<div id="tdStatus" class="status-chip warn">TD WebSocket: 未連線</div>
+			</div>
+
+			<div class="row">
+				<div class="status-chip">活躍 Channels: <span id="channelsDisplay">5</span></div>
+				<div style="display:flex;gap:6px;margin-left:8px">
+					<button id="chA" class="btn">A</button>
+					<button id="chB" class="btn">B</button>
+					<button id="chC" class="btn">C</button>
+					<button id="chD" class="btn">D</button>
+					<button id="chE" class="btn">E</button>
+				</div>
+			</div>
+
+			<div class="row">
+				<input id="tdWsUrl" type="text" value="ws://localhost:8080" />
+				<button id="toggleTdBtn" class="btn">連接 TD WebSocket</button>
+				<button id="sendPendingBtn" class="btn">送出未傳資料</button>
+				<button id="clearBtn" class="btn secondary">清空儲存資料</button>
+			</div>
+
+			<div id="stats" class="stats">總筆數: 0 | 已送 TD: 0 | 未送 TD: 0</div>
+
+			<div class="table-wrap">
+				<table>
+					<thead>
+						<tr>
+							<th>時間</th>
+							<th>ID</th>
+							<th>Value</th>
+							<th>來源</th>
+							<th>TD 狀態</th>
+						</tr>
+					</thead>
+					<tbody id="recordBody"></tbody>
+				</table>
+			</div>
+
+			<div id="log" class="log">Gather 啟動中...</div>
+		</section>
+	</main>
+
+	<script src="../bridge.js"></script>
+	<script src="gather.js"></script>
+</body>
+</html>
